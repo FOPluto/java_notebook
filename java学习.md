@@ -65,6 +65,8 @@ Object // 所有类的父类
 
 # 自己总结
 
+1，Java语法基础（略）
+
 java基本语法部分就略过了，大概从类与对象的章节开始总结：
 
 ## 2，JAVA类与对象
@@ -177,4 +179,66 @@ int num2 = num;
 
      在需要的时候，只需要进行内部结构和数据的更改，而不改变对外接口，，对其的引用就不会受到影响；在需要重复使用时也可以直接引用，就像一辆车可以给很多人开。
 
-  
+###   c. Math类
+
+Math类在java中算是一个工具类，其中都是静态方法，从源码上来看，工具类的构造方法普遍设置为私有的，实例代码如下：
+
+```java
+public class Test {  
+    public static void main (String []args)  
+    {  
+        System.out.println("90 度的正弦值：" + Math.sin(Math.PI/2));  
+        System.out.println("0度的余弦值：" + Math.cos(0));  
+        System.out.println("60度的正切值：" + Math.tan(Math.PI/3));  
+        System.out.println("1的反正切值： " + Math.atan(1));  
+        System.out.println("π/2的角度值：" + Math.toDegrees(Math.PI/2));  
+        System.out.println(Math.PI);  
+    }  
+}
+```
+
+```output
+90 度的正弦值：1.0
+0度的余弦值：1.0
+60度的正切值：1.7320508075688767
+1的反正切值： 0.7853981633974483
+π/2的角度值：90.0
+3.141592653589793
+```
+
+## 4，Java Character类
+
+#### a. Character简介
+
+​		Character类其实就是对基本类型char进行了一次封装。实际开发过程中我们虽然经常使用char这一基本的数据类型，但是很多时候我们更需要的是面向对象的编程思想，所以Java语言为char提供了一个封装的类Character。
+
+实例化过程：
+
+```java
+public class Main {
+    public static void main(String[] args) {
+        char ch = '1';
+        Character cha = new Character(ch);
+        Character test = ch; // 也可以自动装箱
+    }
+}
+```
+
+#### b. Character 方法
+
+下面是Character类的一些方法函数：
+
+```java
+isLetter();      // 判断是否是一个字母
+isDigi();        // 判断是否为一个数字
+isWhitespace();  // 判断是否为一个空白字符
+isUpperCase();   // 判断是否为一个大写字母
+isLowerCase()    // 判断是否是一个小写字母
+toUpperCase()    // 指定字母的大写形式
+toLowerCase()    // 指定字母的小写形式
+toString()       // 返回字符的字符串形式，字符串的长度仅为1
+```
+
+
+
+## 5，Java String类
