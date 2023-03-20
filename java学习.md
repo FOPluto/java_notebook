@@ -2,8 +2,6 @@
 
 ------
 
-
-
 # YSU-java学习
 
 本节是课程上的要注意的点，或者是之前没有学的很细致的地方，防止忘记。
@@ -21,8 +19,6 @@
 类型转换需要考虑精度丢失问题
 
 关系运算符中的==，两个操作数如果类型不同，但是实际值相同，则返回true
-
-
 
 ## 2，第二节课
 
@@ -60,8 +56,6 @@ p = new Person(); // 在堆里面实例化对象，默认值
 Person pp = null; //不给空间，但是不能调用对象中的方法
 Object // 所有类的父类
 ```
-
-
 
 # 自己总结
 
@@ -136,7 +130,7 @@ java基本语法部分就略过了，大概从类与对象的章节开始总结�
 
 ### a. 基本类型与封装类的区别
 
-​		在使用时发现在创建时方式不同：int型直接给一个变量名并赋值即可；而Integer需要创建一个对象，再为这个对象传入一个参数。但是最后输出的结果却是一样的。
+  在使用时发现在创建时方式不同：int型直接给一个变量名并赋值即可；而Integer需要创建一个对象，再为这个对象传入一个参数。但是最后输出的结果却是一样的。
 
 ![image-20230319174121536](C:\Users\HUAWEI\AppData\Roaming\Typora\typora-user-images\image-20230319174121536.png)
 
@@ -179,7 +173,7 @@ int num2 = num;
 
      在需要的时候，只需要进行内部结构和数据的更改，而不改变对外接口，，对其的引用就不会受到影响；在需要重复使用时也可以直接引用，就像一辆车可以给很多人开。
 
-###   c. Math类
+### c. Math类
 
 Math类在java中算是一个工具类，其中都是静态方法，从源码上来看，工具类的构造方法普遍设置为私有的，实例代码如下：
 
@@ -208,9 +202,9 @@ public class Test {
 
 ## 4，Java Character类
 
-#### a. Character简介
+### a. Character简介
 
-​		Character类其实就是对基本类型char进行了一次封装。实际开发过程中我们虽然经常使用char这一基本的数据类型，但是很多时候我们更需要的是面向对象的编程思想，所以Java语言为char提供了一个封装的类Character。
+  Character类其实就是对基本类型char进行了一次封装。实际开发过程中我们虽然经常使用char这一基本的数据类型，但是很多时候我们更需要的是面向对象的编程思想，所以Java语言为char提供了一个封装的类Character。
 
 实例化过程：
 
@@ -224,7 +218,7 @@ public class Main {
 }
 ```
 
-#### b. Character 方法
+### b. Character 方法
 
 下面是Character类的一些方法函数：
 
@@ -239,6 +233,58 @@ toLowerCase()    // 指定字母的小写形式
 toString()       // 返回字符的字符串形式，字符串的长度仅为1
 ```
 
-
-
 ## 5，Java String类
+
+字符串在java中广泛应用，Java字符串属于对象，Java 提供了 String 类来创建和操作字符串。
+
+### a. 如何创建字符串
+
+最简单的创建方式如下：
+
+```java
+public class Main {
+    public static void main(String[] args) throws FileNotFoundException {
+        String str = "aaa";
+    }
+}
+```
+
+当然既然String是一个对象，那么我们也可以通过构造的方法进行创建：
+
+```java
+public class Main {
+    public static void main(String[] args) throws FileNotFoundException {
+        String str = new String("aa");
+    }
+}
+```
+
+String创建的字符串存储在公共池中，而new则直接创建在堆中
+
+```java
+public class Main {
+    public static void main(String[] args) throws FileNotFoundException {
+        String s1 = "Runoob";              // String 直接创建
+        String s2 = "Runoob";              // String 直接创建
+        String s3 = s1;                    // 相同引用
+        String s4 = new String("Runoob");   // String 对象创建
+        String s5 = new String("Runoob");   // String 对象创建
+    }
+}
+```
+
+下图引用自菜鸟教程：
+
+<img src="C:\Users\HUAWEI\AppData\Roaming\Typora\typora-user-images\image-20230320091802466.png" alt="image-20230320091802466" style="zoom:50%;" />
+
+当然还有一种创建的方式，就是通过char数组进行创建：
+
+```java
+public class Main {
+    public static void main(String[] args) throws FileNotFoundException {
+        char [] ch = new char[]{'a', 'b', 'c'};
+        String str = new String(ch);
+        System.out.println(str);
+    }
+}
+```
